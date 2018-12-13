@@ -1,6 +1,7 @@
 // @flow
 import type { Decorator, FormApi } from 'final-form'
 import type { GetInputs, FindInput } from './types'
+import smoothscroll from 'smoothscroll-polyfill'
 import getAllInputs from './getAllInputs'
 import defaultFindInput from './findInput'
 
@@ -8,6 +9,8 @@ const createDecorator = (
   getInputs?: GetInputs,
   findInput?: FindInput
 ): Decorator => (form: FormApi) => {
+  smoothscroll.polyfill()
+
   const focusOnFirstError = (errors: Object) => {
     if (!getInputs) {
       getInputs = getAllInputs
@@ -17,7 +20,8 @@ const createDecorator = (
     }
     const firstInput = findInput(getInputs(), errors)
     if (firstInput) {
-      firstInput.focus()
+      firstInput.focus({ preventScroll: true })
+      firstInput.scrollIntoView({ behavior: 'smooth' })
     }
   }
   // Save original submit function

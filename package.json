@@ -1,5 +1,5 @@
 {
-  "name": "final-form-focus",
+  "name": "final-form-focus-forked",
   "version": "1.1.0",
   "description": "Decorator that will attempt to apply focus to the first field with an error upon an attempted form submission in 🏁 Final Form",
   "main": "dist/final-form-focus.cjs.js",
@@ -9,9 +9,9 @@
     "dist"
   ],
   "scripts": {
+    "build": "nps build",
     "start": "nps",
-    "test": "nps test",
-    "precommit": "lint-staged && npm start validate"
+    "test": "nps test"
   },
   "author": "Erik Rasmussen <rasmussenerik@gmail.com> (http://github.com/erikras)",
   "license": "MIT",
@@ -80,5 +80,8 @@
       "path": "dist/final-form-focus.cjs.js",
       "threshold": "1.2kB"
     }
-  ]
+  ],
+  "dependencies": {
+    "smoothscroll-polyfill": "^0.4.3"
+  }
 }
