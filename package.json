@@ -9,6 +9,8 @@
     "dist"
   ],
   "scripts": {
+    "postinstall": "npm start build",
+    "prepare": "npm start build",
     "build": "nps build",
     "start": "nps",
     "test": "nps test"
